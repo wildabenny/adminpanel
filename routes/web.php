@@ -19,3 +19,7 @@ Route::get('/product/{id}', 'ProductsController@showProduct');
 
 Route::get('/pages', 'PagesController@test');
 
+Route::get('/addproduct', 'ProductsController@addForm');
+
+Route::post('/addproduct', 'ProductsController@add');
+
