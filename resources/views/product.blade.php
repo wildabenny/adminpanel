@@ -21,7 +21,7 @@
                 <li class="list-group-item">Description: {{$product->description}} </li>
             </ul>
 
-            <img src="{{$product->image}}">
+            <img src="{{$product->imageurl}}">
 
         </div>
 

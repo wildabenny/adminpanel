@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Product;
+use App\Page;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function test() {
+    public function showAll()
+    {
 
-        $products = Product::all();
+        return view('/pages');
+    }
 
-        return view('products', compact('products'));
+    public function add(Request $request, Page $page)
+    {
+
+        return view('addpage');
+
+    }
+
+    public function addForm()
+    {
+
+        return view('addpage');
     }
 }

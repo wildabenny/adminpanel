@@ -17,9 +17,13 @@ Route::get('/products', 'ProductsController@showAll');
 
 Route::get('/product/{id}', 'ProductsController@showProduct');
 
-Route::get('/pages', 'PagesController@test');
+Route::get('/pages', 'PagesController@showAll');
 
 Route::get('/addproduct', 'ProductsController@addForm');
 
 Route::post('/addproduct', 'ProductsController@add');
+
+Route::post('addpage', 'PagesController@add');
+
+Route::get('addpage', 'PagesController@addForm');
 

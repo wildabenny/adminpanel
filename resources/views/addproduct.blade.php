@@ -6,7 +6,7 @@
 
     {!! Form::open(array('url'=>'addproduct','method'=>'POST', 'files'=>true)) !!}
     <div class="form-group">
-        <textarea name="shortname" class="form-control" placeholder="Krótka nazwa roduktu"></textarea>
+        <textarea name="shortname" class="form-control" placeholder="Krótka nazwa produktu"></textarea>
     </div>
 
     <div class="form-group">
@@ -21,6 +21,12 @@
         {!! Form::label('Product Image') !!}
         {!! Form::file('image', null) !!}
     </div>
+
+    {{ Form::select('order', [
+   'desc' => 'malejąco',
+   'climb' => 'rosnąco',
+   'name' => 'nazwa']
+) }}
 
     <fieldset>
         <label>Główny produkt?</label><br>

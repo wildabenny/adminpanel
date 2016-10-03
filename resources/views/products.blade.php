@@ -15,8 +15,7 @@
 
                 @foreach($products as $product)
 
-                    <li class="list-group-item"><a href="product/{{$product->id}}">{{$product->shortname}}</a>
-                        Created: {{$product->added_at}}</li>
+                    <li class="list-group-item"><a href="product/{{$product->id}}">{{$product->shortname}}</a></li>
 
                 @endforeach
 
