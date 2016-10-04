@@ -15,19 +15,28 @@
 
                 @foreach($products as $product)
 
-                    <li class="list-group-item"><a href="product/{{$product->id}}">{{$product->shortname}}</a></li>
+                    <li class="list-group-item">
+                        {{$product->shortname}} <a href="editproduct/{{$product->id}}">
+                            <button class="btn btn-primary" style="float: right">Edytuj</button>
+                        </a>
+                    </li>
 
                 @endforeach
 
             </ul>
 
             {{$products->links()}}
-            <a href="addproduct">
-                <button class="btn btn-primary" style="float: right;">Dodaj produkt</button>
-            </a>
+
 
         </div>
 
+    </div>
+
+    <div class="col-md-2 col-md-offset-1">
+
+        <a href="addproduct">
+            <button class="btn btn-primary">Dodaj produkt</button>
+        </a>
     </div>
 
 

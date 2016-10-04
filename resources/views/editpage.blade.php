@@ -2,30 +2,29 @@
 
 @section('content')
 
-    <hr>
-
-    <form method="POST" action="addpage" enctype="multipart/form-data">
+    <form method="POST" action="/page/{{$page->id}}" enctype="multipart/form-data">
 
         {{csrf_field()}}
+        {{method_field('PATCH')}}
 
         <div class="form-group">
-            <textarea name="title" class="form-control" placeholder="Tytuł strony"></textarea>
+            <textarea name="title" class="form-control">{{$page->title}}</textarea>
         </div>
 
         <div class="form-group">
-            <textarea name="alias" class="form-control" placeholder="Alias"></textarea>
+            <textarea name="alias" class="form-control">{{$page->alias}}</textarea>
         </div>
 
         <div class="form-group">
-            <textarea name="meta_title" class="form-control" placeholder="Meta tytuł"></textarea>
+            <textarea name="meta_title" class="form-control">{{$page->meta_title}}</textarea>
         </div>
 
         <div class="form-group">
-            <textarea name="meta_keywords" class="form-control" placeholder="Meta keywords"></textarea>
+            <textarea name="meta_keywords" class="form-control">{{$page->meta_keywords}}</textarea>
         </div>
 
         <div class="form-group">
-            <textarea name="meta_description" class="form-control" placeholder="Meta opis"></textarea>
+            <textarea name="meta_description" class="form-control">{{$page->meta_description}}</textarea>
         </div>
 
         <div class="form-group">
@@ -39,6 +38,8 @@
         <div class="form-group">
             <button class="btn btn-primary">Zapisz</button>
         </div>
+    </form>
+
     </form>
 
 @endsection

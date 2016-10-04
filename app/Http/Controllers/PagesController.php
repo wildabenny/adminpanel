@@ -5,19 +5,35 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Page;
 use Illuminate\Http\Request;
+use View;
 
 class PagesController extends Controller
 {
     public function showAll()
     {
 
-        return view('/pages');
+        $pages = Page::paginate(15);
+        return view('/pages', ['pages' => $pages]);
     }
 
     public function add(Request $request, Page $page)
     {
 
-        return view('addpage');
+        $request->file('meta_image')->move(public_path('images'));
+        $request->file('meta_image')->getClientOriginalName();
+        $page->meta_image = public_path('images') . '/' . $request->file('meta_image')->getClientOriginalName();
+        $request->file('top_image')->move(public_path('images'));
+        $request->file('top_image')->getClientOriginalName();
+        $page->top_image = public_path('images') . '/' . $request->file('top_image')->getClientOriginalName();
+        $page->title = $request->title;
+        $page->alias = $request->alias;
+        $page->meta_title = $request->meta_title;
+        $page->meta_keywords = $request->meta_keywords;
+        $page->meta_description = $request->meta_description;
+
+        $page->save();
+
+        return redirect()->action('PagesController@showAll');
 
     }
 
@@ -25,5 +41,33 @@ class PagesController extends Controller
     {
 
         return view('addpage');
+    }
+
+    public function edit(Page $page)
+    {
+
+        return View::make('/editpage')->with('page', $page);
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $page = Page::find($id);
+
+        $request->file('meta_image')->move(public_path('images'));
+        $request->file('meta_image')->getClientOriginalName();
+        $page->meta_image = public_path('images') . '/' . $request->file('meta_image')->getClientOriginalName();
+        $request->file('top_image')->move(public_path('images'));
+        $request->file('top_image')->getClientOriginalName();
+        $page->top_image = public_path('images') . '/' . $request->file('top_image')->getClientOriginalName();
+        $page->title = $request->title;
+        $page->alias = $request->alias;
+        $page->meta_title = $request->meta_title;
+        $page->meta_keywords = $request->meta_keywords;
+        $page->meta_description = $request->meta_description;
+
+        $page->save();
+
+        return redirect()->action('PagesController@showAll');
     }
 }

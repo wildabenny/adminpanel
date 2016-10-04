@@ -19,8 +19,8 @@
 <div class="container" style="text-align: center">
     <ul class="nav nav-tabs" style="">
         <li role="presentation"><a href="/">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
+        <li role="presentation"><a href="/products">Produkty</a></li>
+        <li role="presentation"><a href="/pages">Strony</a></li>
     </ul>
 
 </div>
