@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('title')
     Products
@@ -6,25 +6,27 @@
 
 @section('content')
 
+    <div class="col-md-6 col-md-offset-3">
+        <h3 style="text-align: center">Produkty</h3>
+    </div>
+
     <div class="row">
 
         <div class="col-md-6 col-md-offset-3">
-
-            <h3>Produkty</h3>
 
             <ul class="list-group">
 
                 @foreach($products as $product)
 
-                    <h5 class="list-heading">Pozycja {{$product->displayorder}}</h5>
+                    <h5 class="list-heading" style="font-size: small">Pozycja {{$product->displayorder}}</h5>
 
                     <li class="list-group-item dropdown-header">
                         {{$product->shortname}}
                         <a href="editproduct/{{$product->id}}">
-                            <button class="btn btn-primary" style="float: right">Edytuj</button>
+                            <button class="btn btn-primary btn-xs" style="float: right">Edytuj</button>
                         </a>
                         <a href="/administrator/deleteproduct/{{$product->id}}">
-                            <button class="btn btn-danger" style="float: right">Delete</button>
+                            <button class="btn btn-danger btn-xs" style="float: right">Usuń</button>
                         </a>
                     </li>
 

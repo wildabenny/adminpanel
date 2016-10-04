@@ -1,10 +1,15 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('title')
     Welcome page
 @endsection
 
 @section('content')
+
+    <div class="col-md-6 col-md-offset-3">
+        <h2 style="text-align: center">Administrator Panel</h2>
+    </div>
+
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <ul class="list-group">
@@ -13,4 +18,5 @@
             </ul>
         </div>
     </div>
+
 @endsection
