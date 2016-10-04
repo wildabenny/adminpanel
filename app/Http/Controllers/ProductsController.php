@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Product;
-use DB;
 use Illuminate\Http\Request;
 use View;
 
@@ -35,7 +34,6 @@ class ProductsController extends Controller
     public function add(Request $request, Product $product)
     {
 
-        //$product_views = new Product();
         $request->file('image')->move(public_path('images'));
         $request->file('image')->getClientOriginalName();
         $product->image = public_path('images') . '/' . $request->file('image')->getClientOriginalName();
