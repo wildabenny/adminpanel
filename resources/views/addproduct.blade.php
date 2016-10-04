@@ -4,42 +4,37 @@
 
     <hr>
 
-    {!! Form::open(array('url'=>'addproduct','method'=>'POST', 'files'=>true)) !!}
-    <div class="form-group">
-        <textarea name="shortname" class="form-control" placeholder="Krótka nazwa produktu"></textarea>
-    </div>
+    <form method="POST" action="/administrator/addproduct" enctype="multipart/form-data">
 
-    <div class="form-group">
-        <textarea name="longname" class="form-control" placeholder="Długa nazwa"></textarea>
-    </div>
+        {{csrf_field()}}
 
-    <div class="form-group">
-        <textarea name="description" class="form-control" placeholder="Opis"></textarea>
-    </div>
+        <div class="form-group">
+            <textarea name="shortname" class="form-control" placeholder="Krótka nazwa produktu"></textarea>
+        </div>
 
-    <div class="form-group">
-        {!! Form::label('Product Image') !!}
-        {!! Form::file('image', null) !!}
-    </div>
+        <div class="form-group">
+            <textarea name="longname" class="form-control" placeholder="Długa nazwa"></textarea>
+        </div>
 
-    {{ Form::select('order', [
-   'desc' => 'malejąco',
-   'climb' => 'rosnąco',
-   'name' => 'nazwa']
-) }}
+        <div class="form-group">
+            <textarea name="description" class="form-control" placeholder="Opis"></textarea>
+        </div>
 
-    <fieldset>
-        <label>Główny produkt?</label><br>
-        <input type="radio" name="mainproduct" value="1"/><label>Tak</label><br/>
-        <input type="radio" name="mainproduct" value="0"/><label>Nie</label><br/>
-    </fieldset>
+        <div class="form-group">
+            <input type="file" name="image" id="image">
+        </div>
 
-    <div class="form-group">
-        <button class="btn btn-primary">Zapisz</button>
-    </div>
+        <input type="number" name="displayorder" min="1" max="500">
 
+        <fieldset>
+            <label>Główny produkt?</label><br>
+            <input type="radio" name="mainproduct" value="1"/><label>Tak</label><br/>
+            <input type="radio" name="mainproduct" value="0"/><label>Nie</label><br/>
+        </fieldset>
 
-    {!! Form::close() !!}
+        <div class="form-group">
+            <button class="btn btn-primary">Zapisz</button>
+        </div>
 
 @endsection
 

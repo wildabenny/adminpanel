@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('longname');
             $table->text('description');
             $table->string('image');
-            $table->string('displayorder');
+            $table->integer('displayorder')->unsigned();
             $table->boolean('mainproduct');
             $table->timestamps();
         });

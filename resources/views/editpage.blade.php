@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="POST" action="/page/{{$page->id}}" enctype="multipart/form-data">
+    <form method="POST" action="/administrator/page/{{$page->id}}" enctype="multipart/form-data">
 
         {{csrf_field()}}
         {{method_field('PATCH')}}

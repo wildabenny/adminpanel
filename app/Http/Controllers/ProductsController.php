@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Product;
+use DB;
 use Illuminate\Http\Request;
 use View;
 
@@ -18,7 +19,7 @@ class ProductsController extends Controller
     public function showAll()
     {
 
-        $products = Product::paginate(10);
+        $products = Product::orderBy('displayorder')->get();
 
         return view('/products', ['products' => $products]);
 
@@ -42,7 +43,7 @@ class ProductsController extends Controller
         $product->longname = $request->longname;
         $product->description = $request->description;
         $product->mainproduct = $request->mainproduct;
-        $product->displayorder = $request->order;
+        $product->displayorder = $request->displayorder;
 
         $product->save();
 
@@ -61,6 +62,7 @@ class ProductsController extends Controller
     {
 
         return View::make('/editproduct')->with('product', $product);
+        //return view('/editproduct', ['product', $product]);
     }
 
     public function update(Request $request, $id)
@@ -79,6 +81,22 @@ class ProductsController extends Controller
         $product->save();
 
         return redirect()->action('ProductsController@showAll');
+
+    }
+
+    public function destroy($id)
+    {
+
+        Product::destroy($id);
+
+        return redirect()->action('ProductsController@showAll');
+
+    }
+
+    public function deleteForm(Product $product)
+    {
+
+        return view('/deleteproduct', ['product' => $product]);
 
     }
 }

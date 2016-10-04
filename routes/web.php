@@ -11,29 +11,41 @@
 |
 */
 
-Route::get('/products', 'ProductsController@showAll');
+Route::get('/administrator/products', 'ProductsController@showAll');
 
-Route::get('/product/{id}', 'ProductsController@showProduct');
+Route::get('/administrator/product/{id}', 'ProductsController@showProduct');
 
-Route::get('/editproduct/{product}', 'ProductsController@edit');
+Route::get('/administrator/editproduct/{product}', 'ProductsController@edit');
 
-Route::patch('/product/{id}', 'ProductsController@update');
+Route::patch('/administrator/product/{id}', 'ProductsController@update');
 
-Route::get('/pages', 'PagesController@showAll');
+Route::get('/administrator/pages', 'PagesController@showAll');
 
-Route::get('/addproduct', 'ProductsController@addForm');
+Route::get('/administrator/addproduct', 'ProductsController@addForm');
 
-Route::post('/addproduct', 'ProductsController@add');
+Route::post('/administrator/addproduct', 'ProductsController@add');
 
-Route::post('addpage', 'PagesController@add');
+Route::post('/administrator/addpage', 'PagesController@add');
 
-Route::get('addpage', 'PagesController@addForm');
+Route::get('/administrator/addpage', 'PagesController@addForm');
 
-Route::get('/editpage/{page}', 'PagesController@edit');
+Route::get('/administrator/editpage/{page}', 'PagesController@edit');
 
-Route::patch('/page/{id}', 'PagesController@update');
+Route::patch('/administrator/page/{id}', 'PagesController@update');
 
 
 Auth::routes();
 
+Route::get('/administrator', 'HomeController@index');
+
 Route::get('/', 'HomeController@index');
+
+Route::get('/administrator/welcome', 'HomeController@index');
+
+Route::get('/administrator/deleteproduct/{product}', 'ProductsController@deleteForm');
+
+Route::delete('administrator/product/delete/{id}', 'ProductsController@destroy');
+
+Route::get('administrator/deletepage/{page}', 'PagesController@deleteForm');
+
+Route::delete('/administrator/page/delete/{id}', 'PagesController@destroy');

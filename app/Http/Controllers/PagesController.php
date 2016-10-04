@@ -76,4 +76,19 @@ class PagesController extends Controller
 
         return redirect()->action('PagesController@showAll');
     }
+
+    public function deleteForm(Page $page)
+    {
+
+        return view('deletepage', ['page' => $page]);
+    }
+
+    public function destroy($id)
+    {
+
+        Page::destroy($id);
+
+        return redirect()->action('PagesController@showAll');
+
+    }
 }

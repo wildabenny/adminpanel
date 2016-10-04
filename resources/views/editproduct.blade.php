@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="POST" action="/product/{{$product->id}}" enctype="multipart/form-data">
+    <form method="POST" action="/administrator/product/{{$product->id}}" enctype="multipart/form-data">
 
         {{csrf_field()}}
         {{method_field('PATCH')}}
@@ -23,13 +23,7 @@
             <input type="file" name="image" id="image">
         </div>
 
-        <div class="form-group">
-            <select name="displayorder">
-                <option value="desc">malejąco</option>
-                <option value="climb">rosnąco</option>
-                <option value="name">po nazwie</option>
-            </select>
-        </div>
+        <input type="number" name="displayorder" min="1" max="500">
 
         <fieldset>
             <label>Główny produkt?</label><br>

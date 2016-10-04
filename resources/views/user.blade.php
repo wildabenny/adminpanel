@@ -1,0 +1,1 @@
+<h1>Strona normalnego usera</h1>
