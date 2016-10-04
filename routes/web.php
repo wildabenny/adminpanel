@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'WelcomeController@show');
-
 Route::get('/products', 'ProductsController@showAll');
 
 Route::get('/product/{id}', 'ProductsController@showProduct');
@@ -36,4 +34,6 @@ Route::get('/editpage/{page}', 'PagesController@edit');
 Route::patch('/page/{id}', 'PagesController@update');
 
 
+Auth::routes();
 
+Route::get('/', 'HomeController@index');

@@ -9,10 +9,16 @@ use View;
 
 class PagesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showAll()
     {
 
-        $pages = Page::paginate(15);
+        $pages = Page::paginate(10);
         return view('/pages', ['pages' => $pages]);
     }
 
