@@ -18,7 +18,8 @@
 
             <div class="row">
 
-                <form method="POST" action="/administrator/product/{{$product->id}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('editProduct', ['id' => $product->id])}}"
+                      enctype="multipart/form-data">
 
                     {{csrf_field()}}
                     {{method_field('PATCH')}}

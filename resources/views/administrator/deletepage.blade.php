@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="POST" action="/administrator/page/delete/{{$page->id}}">
+    <form method="POST" action="{{route('deletePage', ['id' => $page->id])}}">
 
         {{method_field('DELETE')}}
         {{csrf_field()}}

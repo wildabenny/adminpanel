@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="POST" action="/administrator/product/delete/{{$product->id}}">
+    <form method="POST" action="{{route('productDelete', ['id' => $product->id])}}">
 
         {{method_field('DELETE')}}
         {{csrf_field()}}

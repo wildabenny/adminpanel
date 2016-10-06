@@ -27,9 +27,9 @@
 
             <!-- Branding Image -->
             <ul class="nav nav-tabs" style="">
-                <li role="presentation"><a href="/administrator">Home</a></li>
-                <li role="presentation"><a href="/administrator/products">Produkty</a></li>
-                <li role="presentation"><a href="/administrator/pages">Strony</a></li>
+                <li role="presentation"><a href="{{url('/administrator')}}">Home</a></li>
+                <li role="presentation"><a href="{{url('administrator/products')}}">Produkty</a></li>
+                <li role="presentation"><a href="{{url('administrator/pages')}}">Strony</a></li>
             </ul>
         </div>
 
@@ -55,7 +55,7 @@
                                     Logout
                                 </a>
 
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                <form id="logout-form" action="{{ url('administrator/logout') }}" method="POST"
                                       style="display: none;">
                                     {{ csrf_field() }}
                                 </form>

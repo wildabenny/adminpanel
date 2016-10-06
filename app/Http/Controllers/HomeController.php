@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
+
 class HomeController extends Controller
 {
     /**
@@ -18,28 +20,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($alias = 'index')
     {
-        return view('front.index');
-    }
+        $page = Page::where('alias', $alias)->first();
 
-    public function onas()
-    {
-        return view('front.o-nas');
-    }
-
-    public function indexAdmin()
-    {
-        return view('administrator.welcome');
-    }
-
-    public function contact()
-    {
-        return view('front.kontakt');
-    }
-
-    public function about()
-    {
-        return view('front.o-nas');
+        return view('front.' . $alias, ['page' => $page]);
     }
 }

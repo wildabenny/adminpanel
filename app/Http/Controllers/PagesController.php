@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Page;
 use Illuminate\Http\Request;
+use Session;
+use Storage;
 use Validator;
 use View;
 
@@ -76,7 +78,7 @@ class PagesController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required|unique:pages|max:255',
+            'title' => 'required|max:255',
             'alias' => 'required',
             'meta_title' => 'required',
             'meta_keywords' => 'required',
@@ -108,6 +110,19 @@ class PagesController extends Controller
     {
 
         return view('administrator/deletepage', ['page' => $page]);
+    }
+
+    public function deleteFile($id)
+    {
+
+        $page = Page::find($id);
+        $file = $page->top_image;
+
+        Storage::delete($file);
+
+        Session::flash('flash_message', 'Successfully deleted the File!');
+
+        return back();
     }
 
     public function destroy($id)

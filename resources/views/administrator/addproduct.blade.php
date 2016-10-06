@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{route('addproductpost')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('addProductPost')}}" enctype="multipart/form-data">
 
             {{csrf_field()}}
 

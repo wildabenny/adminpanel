@@ -29,48 +29,74 @@ Route::group(['prefix' => 'administrator'], function () {
 
     Route::get('/product/{id}', 'ProductsController@showProduct');
 
-    Route::patch('/product/{id}', 'ProductsController@update');
+    Route::patch('/product/{id}', [
+        'as' => 'editProduct',
+        'uses' => 'ProductsController@update'
+    ]);
 
-    Route::get('/editproduct/{product}', 'ProductsController@edit');
+    Route::get('/editproduct/{product}', [
+        'as' => 'editProductForm',
+        'uses' => 'ProductsController@edit'
+    ]);
 
     Route::get('/deleteproduct/{product}', [
         'as' => 'deleteProductForm',
         'uses' => 'ProductsController@deleteForm'
     ]);
 
-    Route::delete('/product/delete/{id}', 'ProductsController@destroy');
+    Route::delete('/product/delete/{id}', [
+        'as' => 'productDelete',
+        'uses' => 'ProductsController@destroy'
+    ]);
 
     Route::get('/pages', [
         'as' => 'pages',
         'uses' => 'PagesController@showAll'
     ]);
 
-    Route::post('/addpage', 'PagesController@add');
+    Route::post('/addpage', [
+        'as' => 'addPage',
+        'uses' => 'PagesController@add'
+    ]);
 
-    Route::get('/addpage', 'PagesController@addForm');
+    Route::get('/addpage', [
+        'as' => 'addPageForm',
+        'uses' => 'PagesController@addForm'
+    ]);
 
     Route::get('/editpage/{page}', [
-        'as' => 'editpage',
+        'as' => 'editPageForm',
         'uses' => 'PagesController@edit'
     ]);
 
-    Route::patch('/page/{id}', 'PagesController@update');
+    Route::patch('/page/{id}', [
+        'as' => 'editPage',
+        'uses' => 'PagesController@update'
+    ]);
 
     Route::get('/deletepage/{page}', [
         'as' => 'deletePageForm',
         'uses' => 'PagesController@deleteForm'
     ]);
 
-    Route::delete('/page/delete/{id}', 'PagesController@destroy');
+    Route::delete('/page/delete/{id}', [
+        'as' => 'deletePage',
+        'uses' => 'PagesController@destroy'
+    ]);
 
-    Route::get('/', 'HomeController@indexAdmin');
+    Route::delete('/deletepagefile/{id}', [
+        'as' => 'deletePageFile',
+        'uses' => 'PagesController@deleteFile'
+    ]);
+
+    Route::get('/welcome', 'AdminController@index');
 
     Auth::routes();
 
 });
 
-Route::get('/', 'HomeController@index');
+Route::get('/administrator', 'AdminController@index');
 
-Route::get('/o-nas', 'HomeController@about');
+Route::get('/{alias?}', 'HomeController@index');
 
-Route::get('/kontakt', 'HomeController@contact');
+

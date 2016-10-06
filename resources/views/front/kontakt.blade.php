@@ -1,5 +1,13 @@
 @extends('layouts.layout-front')
 
+@section('meta')
+    <meta name="title" content="{{$page->meta_title}}">
+    <meta name="keywords" content="{{$page->meta_keywords}}">
+    <meta name="description" content="{{$page->meta_description}}">
+    <meta name="meta_image" content="{{$page->meta_image}}">
+    <title>{{$page->meta_title}}</title>
+@stop
+
 @section('content')
 
     <section class="page-wide kontakt-page">

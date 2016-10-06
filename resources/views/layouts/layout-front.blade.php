@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Wędliny z Dębiny</title>
+    @yield('meta')
     <link rel="stylesheet" type="text/css" media="all" href="{{ URL::asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,700italic&subset=latin,latin-ext"
           rel="stylesheet" type="text/css">
@@ -12,16 +12,16 @@
 
 <header class="dashed">
     <div class="page">
-        <figure><a href="/"><img src="front/images/logo-big.png"></a></figure>
+        <figure><a href="/"><img src="{{URL::asset('front/images/logo-big.png')}}"></a></figure>
         <div class="hamburger-switch"><span></span></div>
         <nav>
             <ul id="main-menu">
-                <li><a class="active" href="/">start</a></li>
-                <li><a href="o-nas">o nas</a></li>
-                <li><a href="#">wiejski stół</a></li>
-                <li><a href="#">produkty</a></li>
-                <li><a href="#">nasz sklep</a></li>
-                <li><a href="kontakt">kontakt</a></li>
+                <li><a class="active" href="{{url('index')}}">start</a></li>
+                <li><a href="{{url('o-nas')}}">o nas</a></li>
+                <li><a href="{{url('wiejski-stol')}}">wiejski stół</a></li>
+                <li><a href="{{url('produkty')}}">produkty</a></li>
+                <li><a href="{{url('nasz-sklep')}}">nasz sklep</a></li>
+                <li><a href="{{url('kontakt')}}">kontakt</a></li>
             </ul>
         </nav>
     </div>
@@ -34,12 +34,12 @@
 
         <ul class="menu-footer">
 
-            <li><a href="/">start</a></li>
-            <li><a href="o-nas">o nas</a></li>
-            <li><a href="#">wiejski stół</a></li>
-            <li><a href="#">produkty</a></li>
-            <li><a href="#">nasz sklep</a></li>
-            <li><a href="kontakt">kontakt</a></li>
+            <li><a href="{{url('index')}}">start</a></li>
+            <li><a href="{{url('o-nas')}}">o nas</a></li>
+            <li><a href="{{url('wiejski-stol')}}">wiejski stół</a></li>
+            <li><a href="{{'produkty'}}">produkty</a></li>
+            <li><a href="{{url('nasz-sklep')}}">nasz sklep</a></li>
+            <li><a href="{{url('kontakt')}}">kontakt</a></li>
 
         </ul>
 

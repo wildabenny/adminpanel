@@ -1,5 +1,13 @@
 @extends('layouts.layout-front')
 
+@section('meta')
+    <meta name="title" content="{{$page->meta_title}}">
+    <meta name="keywords" content="{{$page->meta_keywords}}">
+    <meta name="description" content="{{$page->meta_description}}">
+    <meta name="meta_image" content="{{$page->meta_image}}">
+    <title>{{$page->meta_title}}</title>
+@stop
+
 @section('content')
 
     <section class="start">
@@ -12,11 +20,11 @@
             <div class="content">
 
                 <div class="logo">
-                    <img src="front/images/logo-big.png">
+                    <img src="{{URL::asset('front/images/logo-big.png')}}">
                 </div>
 
                 <div class="logo-text">
-                    <img src="front/images/logo-text.png">
+                    <img src="{{URL::asset('front/images/logo-text.png')}}">
                 </div>
 
                 <div class="title">Wędliny naturalnie <strong>pyszne.</strong></div>
@@ -51,9 +59,9 @@
 
         <div class="parallaxes">
             <div class="parallax item-1" data-start="60" data-end="75" data-right="150"><img
-                        src="front/images/s2-ham.png"></div>
+                        src="{{URL::asset('front/images/s2-ham.png')}}"></div>
             <div class="parallax item-2" data-start="280" data-end="310" data-right="50"><img
-                        src="front/images/s2-garlic.png"></div>
+                        src="{{URL::asset('front/images/s2-garlic.png')}}"></div>
         </div>
 
     </section>
@@ -67,14 +75,15 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="front/images/melle.jpg" data-lightbox="0" data-group="all" data-title="Krakowska"
+                            <a href="{{URL::asset('front/images/melle.jpg')}}" data-lightbox="0" data-group="all"
+                               data-title="Krakowska"
                                data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
               malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
               finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
               auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
               congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                data-image="images/galeria-big.png" class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -84,14 +93,14 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="front/images/galeria-big.png" data-lightbox="1" data-group="all"
+                            <a href="{{URL::asset('front/images/galeria-big.png')}}" data-lightbox="1" data-group="all"
                                data-title="Krakowska" data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -101,14 +110,14 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="front/images/galeria-big.png" data-lightbox="2" data-group="all"
+                            <a href="{{URL::asset('front/images/galeria-big.png')}}" data-lightbox="2" data-group="all"
                                data-title="Krakowska" data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/galeria-big.png')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -118,14 +127,14 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="front/images/galeria-big.png" data-lightbox="3" data-group="all"
+                            <a href="{{URL::asset('front/images/galeria-big.png')}}" data-lightbox="3" data-group="all"
                                data-title="Krakowska" data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -135,14 +144,14 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="front/images/galeria-big.png" data-lightbox="4" data-group="all"
+                            <a href="{{URL::asset('front/images/galeria-big.png')}}" data-lightbox="4" data-group="all"
                                data-title="Krakowska" data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -152,14 +161,15 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="images/galeria-big.png" data-lightbox="5" data-group="all" data-title="Krakowska"
+                            <a href="{{URL::asset('images/galeria-big.png')}}" data-lightbox="5" data-group="all"
+                               data-title="Krakowska"
                                data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -169,14 +179,15 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="images/galeria-big.png" data-lightbox="6" data-group="all" data-title="Krakowska"
+                            <a href="{{URL::asset('images/galeria-big.png')}}" data-lightbox="6" data-group="all"
+                               data-title="Krakowska"
                                data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="front/images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -186,14 +197,14 @@
 
                     <div class="col-3">
                         <figure>
-                            <a href="front/images/galeria-big.png" data-lightbox="7" data-group="all"
+                            <a href="{{URL::asset('front/images/galeria-big.png')}}" data-lightbox="7" data-group="all"
                                data-title="Krakowska" data-description="Etiam quis tempus nibh. Suspendisse ultrices eleifend convallis. Curabitur vel euismod erat, sed
                 malesuada sem. Fusce non semper magna, vitae euismod odio. Sed lacus leo, tempus ut nisi vitae, congue
                 finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac,
                 auctor lectus. Praesent pulvinar lacus in nisl faucibus viverra. Sed lacus leo, tempus ut nisi vitae,
                 congue finibus nisl. Maecenas in finibus neque, id lacinia lacus. Duis sed dolor mattis, ultricies ipsum ac, auctor lectus."
                                class="wrapper lightbox-trigger">
-                                <img src="images/box.jpg">
+                                <img src="{{URL::asset('front/images/box.jpg')}}">
                                 <div class="overlay">
                                 </div>
                                 <div class="title">Krakowska</div>
@@ -247,7 +258,7 @@
                 <div class="col-5">
 
                     <div class="text-block">
-                        <img src="front/images/contact-ham.png">
+                        <img src="{{URL::asset('front/images/contact-ham.png')}}">
                         <p>
                             <strong>"Wędliny z Dębiny"</strong> Elżbieta Tomaszewska<br/>Dębina ul. Pańska 12, 05-152
                             Czosnów

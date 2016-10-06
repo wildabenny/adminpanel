@@ -18,7 +18,7 @@
 
             <div class="row">
 
-                <form method="POST" action="/administrator/page/{{$page->id}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('editPage', ['id' => $page->id])}}" enctype="multipart/form-data">
 
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
@@ -52,17 +52,41 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="file" name="meta_image">
+                        <label class="btn btn-default bnt-file">Aktualny plik meta-image:
+                            '{{basename($page->meta_image)}}'
+                            <a href="">
+                                <button class="btn btn-danger btn-xs">Usuń plik</button>
+                            </a>
+                            <input type="file" name="meta_image">
+                        </label>
                     </div>
 
                     <div class="form-group">
-                        <input type="file" name="top_image">
+                        <label class="btn btn-default btn-file">Aktualny plik top-image: '{{basename($page->top_image)}}
+                            '
+                            <button class="btn btn-danger btn-xs">Usuń plik</button>
+                            </a>
+                            <input type="file" name="top_image">
+                        </label>
                     </div>
 
                     <div class="form-group">
                         <button class="btn btn-primary">Zapisz</button>
                     </div>
+
                 </form>
+
+                {{--<form method="POST" action="{{route('deletePageFile', ['id' => $page->id])}}" enctype="multipart/form-data">
+
+                    {{csrf_field()}}
+                    {{method_field('DELETE')}}
+                    <div class="form-group">
+                        <label class="btn btn-default btn-file">Aktualny plik top-image: '{{basename($page->top_image)}}'
+                            <button class="btn btn-danger btn-xs">Usuń plik</button> </a>
+                            <input type="file" name="top_image">
+                        </label>
+                    </div>
+                </form>--}}
 
             </div>
 

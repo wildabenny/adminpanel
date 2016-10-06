@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <form method="POST" action="addpage" enctype="multipart/form-data">
+        <form method="POST" action="{{route('addPage')}}" enctype="multipart/form-data">
 
             {{csrf_field()}}
 
