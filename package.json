@@ -1,18 +1,22 @@
 {
-  "private": true,
-  "scripts": {
-    "prod": "gulp --production",
-    "dev": "gulp watch"
-  },
+  "name": "my-project-name",
+  "version": "0.1.0",
   "devDependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "gulp": "^3.9.1",
-    "jquery": "^3.1.0",
-    "laravel-elixir": "^6.0.0-9",
-    "laravel-elixir-vue": "^0.1.4",
-    "laravel-elixir-webpack-official": "^1.0.2",
-    "lodash": "^4.14.0",
-    "vue": "^1.0.26",
-    "vue-resource": "^1.0.2"
-  }
+    "eyeglass": "^1.1.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "^0.5.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bourbon-neat": "^1.8.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^0.5.1"
+  },
+  "description": ""
 }

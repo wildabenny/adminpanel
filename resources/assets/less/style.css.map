@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "C:/Users/SafiStudio/tejot-weranda/_template/css/mixins.less",
+    "style.less",
+    "C:/Users/SafiStudio/tejot-weranda/_template/css/settings.less"
+  ],
+  "names": [],
+  "mappings": "AAkHA;EACE,kBAAA;EACA,QAAA;EACA,SAAA;EA/CA,mBAAmB,qBAAnB;EACA,eAAe,qBAAf;EACA,cAAe,qBAAf;EACA,WAAW,qBAAX;EACA,gBAAiB,qBAAjB;;;;;ACpEF;EACE,sBAAA;EACA,8BAAA;EACA,2BAAA;;AAGF;EACE,gBAAA;;AAEF;EACE,SAAA;EACA,UAAA;EACA,eAAA;EACA,aCX0B,QDW1B;EACA,cAAA;;AAEF;AAAI;AAAI;AAAI;AAAI;AAAI;EAClB,gBAAA;;AAEF;EACE,SAAA;;AAEF;AAAG;EACD,kBAAA;EACA,aAAA;;AAEF;ED2EE,kCAAA;EACA,+BAAA;EACA,8BAAA;EACA,6BAAA;EACA,0BAAA;;AC3EF;EACE,eAAA;;AAEF;EACE,eAAA;;AAEF;EACE,eAAA;EACA,cAAA;EACA,YAAA;EACA,SAAA;EACA,UAAA"
+}

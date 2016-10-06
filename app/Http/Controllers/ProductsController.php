@@ -18,21 +18,29 @@ class ProductsController extends Controller
     public function showAll()
     {
 
-        $products = Product::orderBy('displayorder')->get();
+        $products = Product::orderBy('displayorder')->paginate(5);
 
-        return view('/products', ['products' => $products]);
+        return view('administrator/products', ['products' => $products]);
 
     }
 
     public function showProduct($id)
     {
 
-        return view('/product', ['product' => Product::findOrFail($id)]);
+        return view('administrator/product', ['product' => Product::findOrFail($id)]);
 
     }
 
     public function add(Request $request, Product $product)
     {
+
+        $this->validate($request, [
+            'shortname' => 'required|unique:products|max:255',
+            'longname' => 'required',
+            'description' => 'required',
+            'mainproduct' => 'required',
+            'displayorder' => 'required|unique:products',
+        ]);
 
         $request->file('image')->move(public_path('images'));
         $request->file('image')->getClientOriginalName();
@@ -53,18 +61,27 @@ class ProductsController extends Controller
     public function addForm()
     {
 
-        return view('addproduct');
+        return view('administrator/addproduct');
     }
 
     public function edit(Product $product)
     {
 
-        return View::make('/editproduct')->with('product', $product);
+        return View::make('administrator/editproduct')->with('product', $product);
         //return view('/editproduct', ['product', $product]);
     }
 
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, [
+            'shortname' => 'required|unique:products|max:255',
+            'longname' => 'required',
+            'description' => 'required',
+            'mainproduct' => 'required',
+            'displayorder' => 'required|unique:products',
+            'image' => 'image|mimes:jpg,png',
+        ]);
 
         $product = Product::find($id);
         $request->file('image')->move(public_path('images'));
@@ -94,7 +111,7 @@ class ProductsController extends Controller
     public function deleteForm(Product $product)
     {
 
-        return view('/deleteproduct', ['product' => $product]);
+        return view('administrator/deleteproduct', ['product' => $product]);
 
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Page;
 use Illuminate\Http\Request;
+use Validator;
 use View;
 
 class PagesController extends Controller
@@ -19,11 +20,27 @@ class PagesController extends Controller
     {
 
         $pages = Page::paginate(10);
-        return view('/pages', ['pages' => $pages]);
+        return view('administrator/pages', ['pages' => $pages]);
     }
 
     public function add(Request $request, Page $page)
     {
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:pages|max:255',
+            'alias' => 'required',
+            'meta_title' => 'required',
+            'meta_keywords' => 'required',
+            'meta_description' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+
+            return redirect('/administrator/addpage')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
 
         $request->file('meta_image')->move(public_path('images'));
         $request->file('meta_image')->getClientOriginalName();
@@ -46,17 +63,27 @@ class PagesController extends Controller
     public function addForm()
     {
 
-        return view('addpage');
+        return view('administrator/addpage');
     }
 
     public function edit(Page $page)
     {
 
-        return View::make('/editpage')->with('page', $page);
+        return View::make('administrator/editpage')->with('page', $page);
     }
 
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, [
+            'title' => 'required|unique:pages|max:255',
+            'alias' => 'required',
+            'meta_title' => 'required',
+            'meta_keywords' => 'required',
+            'meta_description' => 'required',
+            'meta_image' => 'image',
+            'top_image' => 'image'
+        ]);
 
         $page = Page::find($id);
 
@@ -80,7 +107,7 @@ class PagesController extends Controller
     public function deleteForm(Page $page)
     {
 
-        return view('deletepage', ['page' => $page]);
+        return view('administrator/deletepage', ['page' => $page]);
     }
 
     public function destroy($id)

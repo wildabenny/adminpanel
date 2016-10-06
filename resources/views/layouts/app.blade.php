@@ -37,8 +37,8 @@
             <!-- Branding Image -->
             <ul class="nav nav-tabs" style="">
                 <li role="presentation"><a href="/">Home</a></li>
-                <li role="presentation"><a href="/products">Produkty</a></li>
-                <li role="presentation"><a href="/pages">Strony</a></li>
+                <li role="presentation"><a href="{{route('products')}}">Produkty</a></li>
+                <li role="presentation"><a href="{{route('pages')}}">Strony</a></li>
             </ul>
         </div>
 
@@ -52,8 +52,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('administrator/login') }}">Login</a></li>
+                    <li><a href="{{ url('administrator/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

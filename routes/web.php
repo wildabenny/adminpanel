@@ -11,41 +11,66 @@
 |
 */
 
-Route::get('/administrator/products', 'ProductsController@showAll');
+Route::group(['prefix' => 'administrator'], function () {
 
-Route::get('/administrator/product/{id}', 'ProductsController@showProduct');
+    Route::get('/products', [
+        'as' => 'products',
+        'uses' => 'ProductsController@showAll']);
 
-Route::get('/administrator/editproduct/{product}', 'ProductsController@edit');
+    Route::get('/addproduct', [
+        'as' => 'addProduct',
+        'uses' => 'ProductsController@addForm'
+    ]);
 
-Route::patch('/administrator/product/{id}', 'ProductsController@update');
+    Route::post('/addproduct', [
+        'as' => 'addProductPost',
+        'uses' => 'ProductsController@add'
+    ]);
 
-Route::get('/administrator/pages', 'PagesController@showAll');
+    Route::get('/product/{id}', 'ProductsController@showProduct');
 
-Route::get('/administrator/addproduct', 'ProductsController@addForm');
+    Route::patch('/product/{id}', 'ProductsController@update');
 
-Route::post('/administrator/addproduct', 'ProductsController@add');
+    Route::get('/editproduct/{product}', 'ProductsController@edit');
 
-Route::post('/administrator/addpage', 'PagesController@add');
+    Route::get('/deleteproduct/{product}', [
+        'as' => 'deleteProductForm',
+        'uses' => 'ProductsController@deleteForm'
+    ]);
 
-Route::get('/administrator/addpage', 'PagesController@addForm');
+    Route::delete('/product/delete/{id}', 'ProductsController@destroy');
 
-Route::get('/administrator/editpage/{page}', 'PagesController@edit');
+    Route::get('/pages', [
+        'as' => 'pages',
+        'uses' => 'PagesController@showAll'
+    ]);
 
-Route::patch('/administrator/page/{id}', 'PagesController@update');
+    Route::post('/addpage', 'PagesController@add');
 
+    Route::get('/addpage', 'PagesController@addForm');
 
-Auth::routes();
+    Route::get('/editpage/{page}', [
+        'as' => 'editpage',
+        'uses' => 'PagesController@edit'
+    ]);
 
-Route::get('/administrator', 'HomeController@index');
+    Route::patch('/page/{id}', 'PagesController@update');
+
+    Route::get('/deletepage/{page}', [
+        'as' => 'deletePageForm',
+        'uses' => 'PagesController@deleteForm'
+    ]);
+
+    Route::delete('/page/delete/{id}', 'PagesController@destroy');
+
+    Route::get('/', 'HomeController@indexAdmin');
+
+    Auth::routes();
+
+});
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/administrator/welcome', 'HomeController@index');
+Route::get('/o-nas', 'HomeController@about');
 
-Route::get('/administrator/deleteproduct/{product}', 'ProductsController@deleteForm');
-
-Route::delete('administrator/product/delete/{id}', 'ProductsController@destroy');
-
-Route::get('administrator/deletepage/{page}', 'PagesController@deleteForm');
-
-Route::delete('/administrator/page/delete/{id}', 'PagesController@destroy');
+Route::get('/kontakt', 'HomeController@contact');

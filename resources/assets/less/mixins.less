@@ -1,0 +1,236 @@
+@import "settings";
+
+.Font() {
+  color: @defaultFontColor;
+  font-size: @defaultFontSize;
+  font-family: @defaultFontFamily;
+  font-weight: normal;
+}
+
+.MaxCalc(@expression) {
+  max-width: -webkit-calc(@expression);
+  max-width: -moz-calc(@expression);
+  max-width: -o-calc(@expression);
+  max-width: calc(@expression);
+}
+
+.HeightCalc(@expression) {
+  height: -webkit-calc(@expression);
+  height: -moz-calc(@expression);
+  height: -o-calc(@expression);
+  height: calc(@expression);
+}
+
+.TopCalc(@expression) {
+  top: -webkit-calc(@expression);
+  top: -moz-calc(@expression);
+  top: -o-calc(@expression);
+  top: calc(@expression);
+}
+
+.MaxHeightCalc(@expression) {
+  max-height: -webkit-calc(@expression);
+  max-height: -moz-calc(@expression);
+  max-height: -o-calc(@expression);
+  max-height: calc(@expression);
+}
+
+.MinCalc(@expression) {
+  min-width: -webkit-calc(@expression);
+  min-width: -moz-calc(@expression);
+  min-width: -o-calc(@expression);
+  min-width: calc(@expression);
+}
+
+.FlipImage() {
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.Rounded(@radius:@defaultRadius) {
+  border-radius: @radius;
+}
+
+.Round() {
+  .Rounded(50%);
+}
+
+.ClearAfter() {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+.ClearBoth() {
+  &:after, &:before {
+    clear: both;
+    content: "";
+    display: block;
+    width: 100%;
+  }
+}
+
+.verticalMiddleParent() {
+  &::before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle; /* vertical alignment of the inline element */
+    height: 100%;
+  }
+}
+
+.verticalMiddleChild() {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.Center() {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+// Transforms ----------------------------------------------------------- //
+.Translate(@x:0, @y:0) {
+  -webkit-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+}
+
+.Rotate(@rotate:0) {
+  -webkit-transform: rotate(@rotate);
+  -ms-transform: rotate(@rotate);
+  transform: rotate(@rotate);
+}
+
+.Scale(@scale:1) {
+  -webkit-transform: scale(@scale);
+  -ms-transform: scale(@scale);
+  transform: scale(@scale);
+}
+
+.ScaleRotate(@scale:1, @rotate:0) {
+  -webkit-transform: scale(@scale) rotate(@rotate);
+  -ms-transform: scale(@scale) rotate(@rotate);
+  transform: scale(@scale) rotate(@rotate);
+}
+
+.ScaleTranslate(@scale:1, @x:0, @y: 0) {
+  -webkit-transform: scale(@scale) translate(@x, @y);
+  -ms-transform: scale(@scale) translate(@x, @y);
+  transform: scale(@scale) translate(@x, @y);
+  transform-origin: center;
+}
+
+.transformMiddle() {
+  top: 50%;
+  .Translate(0, -50%);
+}
+
+// Image manipulation --------------------------------------------------- //
+
+.box-shadow (@string) {
+  -webkit-box-shadow: @string;
+  -moz-box-shadow: @string;
+  box-shadow: @string;
+}
+
+.transition() {
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.transitionDuration(@int) {
+  -webkit-transition: @int linear;
+  -moz-transition: all @int linear;
+  -ms-transition: all @int linear;
+  -o-transition: all @int linear;
+  transition: all @int linear;
+}
+
+.transitionDelay(@delay) {
+  -moz-transition-delay: @delay;
+  -o-transition-delay: @delay;
+  -webkit-transition-delay: @delay;
+  transition-delay: @delay;
+}
+
+.Centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  .Translate(-50%, -50%);
+}
+
+.backgroundGradient( @firstColor, @secondColor) {
+  background: @firstColor; /* Old browsers */
+  background: -moz-linear-gradient(right, @firstColor 0%, @secondColor 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, @firstColor 0%, @secondColor 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, @firstColor 0%, @secondColor 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@firstColor', endColorstr='@secondColor', GradientType=1); /* IE6-9 */
+
+}
+
+.backgroundColored() {
+  .backgroundGradient(@red, @violet);
+}
+
+.Calc(@expression) {
+  width: -moz-calc(@expression);
+  width: -o-calc(@expression);
+  width: -webkit-calc(@expression);
+  width: calc(@expression);
+}
+
+.borderColoredBottom() {
+  content: " ";
+  display: block;
+  height: 3px;
+  .backgroundColored;
+  position: absolute;
+  bottom: 3px;
+}
+
+.placeholder() {
+  padding: 2px 10px;
+  font-family: "Oswald";
+  font-weight: 300;
+  &::-webkit-input-placeholder {
+    font-family: 'Oswald';
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  &::-moz-placeholder {
+    font-family: 'Oswald';
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  &:-ms-input-placeholder {;
+    font-family: 'Oswald';
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  &:-moz-placeholder {
+    font-family: 'Oswald';
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}
+
+@font-face {
+  font-family: 'Oswald'; /*a name to be used later*/
+  font-style: italic;
+  font-weight: 300;
+}
