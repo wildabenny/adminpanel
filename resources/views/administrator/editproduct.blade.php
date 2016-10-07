@@ -27,7 +27,8 @@
                     <div class="form-group">
                         <label style="font-size: small">Krótka nazwa</label>
                         <textarea name="shortname" class="form-control"
-                                  style="height: 40px">{{$product->shortname}}</textarea>
+                                  style="height: 40px"
+                                  value="{{ old($product->shortname) }}">{{$product->shortname}}</textarea>
                     </div>
 
                     <div class="form-group">

@@ -91,12 +91,25 @@ Route::group(['prefix' => 'administrator'], function () {
 
     Route::get('/welcome', 'AdminController@index');
 
+
     Auth::routes();
 
 });
 
 Route::get('/administrator', 'AdminController@index');
 
+Route::get('/{alias?}', 'HomeController@products');
+
 Route::get('/{alias?}', 'HomeController@index');
+
+/*Route::get('/ajax',function(){
+    return view('front.test');
+});
+Route::post('/getmsg','HomeController@test');
+
+Route::get('/getproducts/{number}', 'HomeController@products');*/
+
+
+
 
 

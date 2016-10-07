@@ -20,26 +20,30 @@
 
             <div class="form-group">
                 <label style="font-size: small">Krótka nazwa</label>
-                <textarea name="shortname" class="form-control" placeholder="Krótka nazwa produktu"
-                          style="height: 40px"></textarea>
+                <input name="shortname" class="form-control" placeholder="Krótka nazwa produktu"
+                       style="height: 40px" value="{{Request::old('shortname')}}">
             </div>
 
             <div class="form-group">
                 <label style="font-size: small">Długa nazwa</label>
-                <textarea name="longname" class="form-control" placeholder="Długa nazwa"></textarea>
+                <input name="longname" class="form-control" placeholder="Długa nazwa" value="{{old('longname')}}">
             </div>
 
             <div class="form-group">
                 <label style="font-size: small">Opis</label>
-                <textarea name="description" class="form-control" placeholder="Opis"></textarea>
+                <input name="description" class="form-control" placeholder="Opis" value="{{old('description')}}">
             </div>
 
             <div class="form-group">
-                <input type="file" name="image" id="image">
+                <label class="btn btn-default btn-file" value="{{old('image')}}">
+                    </a>
+                    <input type="file" name="image">
+                </label>
             </div>
+
             <div>
                 <label style="font-size: small">Kolejność wyświetlania</label><br>
-                <input type="number" name="displayorder" min="1" max="500">
+                <input type="number" name="displayorder" min="1" max="500" value="{{old('displayorder')}}">
             </div>
 
 

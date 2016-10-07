@@ -26,6 +26,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/administrator/welcome';
+    protected $loginPath = '/auth/login';
 
     /**
      * Create a new controller instance.
@@ -36,4 +37,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
 }

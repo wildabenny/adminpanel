@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Product;
 use Illuminate\Http\Request;
+use Validator;
 use View;
 
 class ProductsController extends Controller
@@ -34,13 +35,19 @@ class ProductsController extends Controller
     public function add(Request $request, Product $product)
     {
 
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'shortname' => 'required|unique:products|max:255',
             'longname' => 'required',
             'description' => 'required',
             'mainproduct' => 'required',
             'displayorder' => 'required|unique:products',
         ]);
+
+        if ($validator->fails()) {
+
+            return redirect('administrator/addproduct')->withErrors($validator)
+                ->withInput();
+        }
 
         $request->file('image')->move(public_path('images'));
         $request->file('image')->getClientOriginalName();

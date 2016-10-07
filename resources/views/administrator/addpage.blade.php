@@ -20,35 +20,41 @@
 
             <div class="form-group">
                 <label style="font-size: small">Tytuł strony</label>
-                <textarea name="title" class="form-control" style="height: 40px"></textarea>
+                <input name="title" class="form-control" style="height: 40px" value="{{old('title')}}">
             </div>
 
             <div class="form-group">
                 <label style="font-size: small">Alias</label>
-                <textarea name="alias" class="form-control" style="height: 40px"></textarea>
+                <input name="alias" class="form-control" style="height: 40px" value="{{old('alias')}}">
             </div>
 
             <div class="form-group">
                 <label style="font-size: small">Meta tytuł</label>
-                <textarea name="meta_title" class="form-control" style="height: 40px"></textarea>
+                <input name="meta_title" class="form-control" style="height: 40px" value="{{old('meta_title')}}">
             </div>
 
             <div class="form-group">
                 <label style="font-size: small">Meta keywords</label>
-                <textarea name="meta_keywords" class="form-control" style="height: 40px"></textarea>
+                <input name="meta_keywords" class="form-control" style="height: 40px" value="{{old('meta_keywords')}}">
             </div>
 
             <div class="form-group">
                 <label style="font-size: small">Meta opis</label>
-                <textarea name="meta_description" class="form-control" style="height: 40px"></textarea>
+                <input name="meta_description" class="form-control" style="height: 40px"
+                       value="{{old('meta_description')}}">
+                >
             </div>
 
             <div class="form-group">
-                <input type="file" name="meta_image">
+                <label class="btn btn-default btn-file">
+                    <input type="file" name="top_image">
+                </label>
             </div>
 
             <div class="form-group">
-                <input type="file" name="top_image">
+                <label class="btn btn-default btn-file">
+                    <input type="file" name="meta_image">
+                </label>
             </div>
 
             <div class="form-group">
