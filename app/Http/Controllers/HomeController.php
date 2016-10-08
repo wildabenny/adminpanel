@@ -36,14 +36,12 @@ class HomeController extends Controller
         return view('front.' . $alias, ['page' => $page]);
     }
 
-    public function products($number)
+    public function products()
     {
-        $products = Product::where('displayorder', '>=', $number)
+        $products = Product::where('displayorder')
             ->orderBy('displayorder', 'desc')
             ->limit(10)
             ->get();
-
-        //return $products->toJson();
 
         return Response::json($products);
 

@@ -54,18 +54,14 @@
                     <div class="form-group">
                         <label class="btn btn-default bnt-file">Aktualny plik meta-image:
                             '{{basename($page->meta_image)}}'
-                            <a href="">
-                                <button class="btn btn-danger btn-xs" data-id="{{$page->meta_image}}">Usuń plik</button>
-                            </a>
+                            <a href="{{route('deletePageFile', ['file' => $page->id])}}">Usuń plik</a>
                             <input type="file" name="meta_image">
                         </label>
                     </div>
 
                     <div class="form-group">
                         <label class="btn btn-default btn-file">Aktualny plik top-image: '{{basename($page->top_image)}}
-                            '
-                            <button class="btn btn-danger btn-xs" data-id="{{$page->top_image}}">Usuń plik</button>
-                            </a>
+                            <a href="{{route('deletePageFile', ['file' => $page->id])}}">Usuń plik</a>
                             <input type="file" name="top_image">
                         </label>
                     </div>
@@ -75,18 +71,6 @@
                     </div>
 
                 </form>
-
-                {{--<form method="POST" action="{{route('deletePageFile', ['id' => $page->id])}}" enctype="multipart/form-data">
-
-                    {{csrf_field()}}
-                    {{method_field('DELETE')}}
-                    <div class="form-group">
-                        <label class="btn btn-default btn-file">Aktualny plik top-image: '{{basename($page->top_image)}}'
-                            <button class="btn btn-danger btn-xs">Usuń plik</button> </a>
-                            <input type="file" name="top_image">
-                        </label>
-                    </div>
-                </form>--}}
 
             </div>
 

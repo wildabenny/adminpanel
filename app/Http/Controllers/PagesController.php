@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Page;
+use File;
 use Illuminate\Http\Request;
 use Session;
 use Storage;
@@ -89,9 +90,12 @@ class PagesController extends Controller
 
         $page = Page::find($id);
 
-        $request->file('meta_image')->move(public_path('images'));
-        $request->file('meta_image')->getClientOriginalName();
-        $page->meta_image = public_path('images') . '/' . $request->file('meta_image')->getClientOriginalName();
+        $file = $request->file('meta_image');
+        $filename = $request->file('meta_image')->getFilename();
+        //$file->store(public_path('images'));
+        $request->file('meta_image')->move('images', $filename);
+        $file->getClientOriginalName();
+        $page->meta_image = public_path('images') . '/' . $file->getClientOriginalName();
         $request->file('top_image')->move(public_path('images'));
         $request->file('top_image')->getClientOriginalName();
         $page->top_image = public_path('images') . '/' . $request->file('top_image')->getClientOriginalName();
@@ -116,9 +120,17 @@ class PagesController extends Controller
     {
 
         $page = Page::find($id);
-        $file = $page->top_image;
 
-        Storage::delete($file);
+        $pageFile = $page->meta_image;
+        Storage::url($pageFile);
+
+        Storage::delete($pageFile);
+        dd($pageFile);
+
+
+        /* $page->top_image = '';
+
+         $page->save();*/
 
         Session::flash('flash_message', 'Successfully deleted the File!');
 

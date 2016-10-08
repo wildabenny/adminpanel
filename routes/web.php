@@ -84,7 +84,7 @@ Route::group(['prefix' => 'administrator'], function () {
         'uses' => 'PagesController@destroy'
     ]);
 
-    Route::delete('/deletepagefile/{id}', [
+    Route::get('/deletepagefile/{id}', [
         'as' => 'deletePageFile',
         'uses' => 'PagesController@deleteFile'
     ]);
@@ -106,8 +106,9 @@ Route::get('/{alias?}', 'HomeController@index');
     return view('front.test');
 });
 Route::post('/getmsg','HomeController@test');
+*/
 
-Route::get('/getproducts/{number}', 'HomeController@products');*/
+Route::get('/getproducts', 'HomeController@products');
 
 
 
