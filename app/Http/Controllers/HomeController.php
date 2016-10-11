@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use App\Product;
+use Input;
 use Response;
 
 class HomeController extends Controller
@@ -36,21 +37,21 @@ class HomeController extends Controller
         return view('front.' . $alias, ['page' => $page]);
     }
 
-    public function products()
+    public function ajaxProducts($actual)
     {
-        $products = Product::where('displayorder')
+
+        //$actual = Input::get('actual');
+        $products = Product::where('displayorder', '>', intValue($actual))
             ->orderBy('displayorder', 'desc')
             ->limit(10)
             ->get();
 
         return Response::json($products);
 
+        //return json_encode($products);
+
+        //return response()->json(array('products' => $products));
+
     }
 
-    public function test()
-    {
-        $msg = "Wiadomość testowa2";
-
-        return response()->json(array('msg' => $msg), 200);
-    }
 }

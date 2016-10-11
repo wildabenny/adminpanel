@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Product;
+use File;
 use Illuminate\Http\Request;
+use Storage;
 use Validator;
 use View;
 
@@ -49,8 +51,16 @@ class ProductsController extends Controller
                 ->withInput();
         }
 
-        $request->file('image')->move(public_path('images'));
-        $request->file('image')->getClientOriginalName();
+        $file = $request->file('image');
+        /* $extension = $file->getClientOriginalExtension();
+         $fileName = $file->getClientOriginalName();
+         Storage::disk('local')->put($fileName, File::get($file));
+         $product->image = $file->getRealPath();*/
+
+        //$path = Storage::putFile('images', $request->file('image'));
+
+        $file->move(public_path('images'), $request->file('image')->getClientOriginalName());
+        //$request->file('image')->getClientOriginalName()->move(public_path('images'));
         $product->image = public_path('images') . '/' . $request->file('image')->getClientOriginalName();
         $product->shortname = $request->shortname;
         $product->longname = $request->longname;

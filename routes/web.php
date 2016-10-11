@@ -98,17 +98,17 @@ Route::group(['prefix' => 'administrator'], function () {
 
 Route::get('/administrator', 'AdminController@index');
 
-Route::get('/{alias?}', 'HomeController@products');
+//Route::get('/{alias?}', 'HomeController@products');
 
 Route::get('/{alias?}', 'HomeController@index');
 
-/*Route::get('/ajax',function(){
-    return view('front.test');
-});
-Route::post('/getmsg','HomeController@test');
-*/
+Route::group(['prefix' => 'api'], function () {
 
-Route::get('/getproducts', 'HomeController@products');
+    Route::get('/getproducts/{actual}', 'HomeController@ajaxProducts');
+});
+
+
+
 
 
 
