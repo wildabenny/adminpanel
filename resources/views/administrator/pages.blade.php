@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <link type="text/css" href="{{URL::asset('css/listitems.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('css/listitems.css')}}" rel="stylesheet">
 
     <div class="col-md-6 col-md-offset-3">
         <h3 style="text-align: center">Strony</h3>

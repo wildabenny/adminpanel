@@ -40,13 +40,23 @@ class HomeController extends Controller
     public function ajaxProducts($actual)
     {
 
-        //$actual = Input::get('actual');
-        $products = Product::where('displayorder', '>', intValue($actual))
+        $products = Product::where('displayorder', '>', $actual)
             ->orderBy('displayorder', 'desc')
-            ->limit(10)
+            ->take(11)
             ->get();
 
-        return Response::json($products);
+        $show_button = false;
+        if ($products->count() > 10) {
+            $show_button = true;
+            //$products = $products->slice(10);
+        }
+
+        //var_dump(view('api.ajax', ['products' => $products]));exit;
+
+        return ['html' => (string)view('api.ajax', ['products' => $products]), 'show_button' => $show_button];
+
+
+        //return Response::json($products);
 
         //return json_encode($products);
 

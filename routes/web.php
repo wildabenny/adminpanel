@@ -105,6 +105,7 @@ Route::get('/{alias?}', 'HomeController@index');
 Route::group(['prefix' => 'api'], function () {
 
     Route::get('/getproducts/{actual}', 'HomeController@ajaxProducts');
+
 });
 
 
