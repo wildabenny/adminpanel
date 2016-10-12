@@ -51,16 +51,7 @@ class HomeController extends Controller
             //$products = $products->slice(10);
         }
 
-        //var_dump(view('api.ajax', ['products' => $products]));exit;
-
         return ['html' => (string)view('api.ajax', ['products' => $products]), 'show_button' => $show_button];
-
-
-        //return Response::json($products);
-
-        //return json_encode($products);
-
-        //return response()->json(array('products' => $products));
 
     }
 
