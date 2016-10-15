@@ -17,6 +17,11 @@ Route::group(['prefix' => 'administrator'], function () {
         'as' => 'products',
         'uses' => 'ProductsController@showAll']);
 
+    Route::get('/products', [
+        'as' => 'searchproducts',
+        'uses' => 'ProductsController@showSearch'
+    ]);
+
     Route::get('/addproduct', [
         'as' => 'addProduct',
         'uses' => 'ProductsController@addForm'
@@ -52,6 +57,11 @@ Route::group(['prefix' => 'administrator'], function () {
     Route::get('/pages', [
         'as' => 'pages',
         'uses' => 'PagesController@showAll'
+    ]);
+
+    Route::get('/pages', [
+        'as' => 'searchpages',
+        'uses' => 'PagesController@showSearch'
     ]);
 
     Route::post('/addpage', [

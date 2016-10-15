@@ -18,31 +18,42 @@
 
             {{csrf_field()}}
 
-            <div class="form-group">
-                <label style="font-size: small">Tytuł strony</label>
-                <input name="title" class="form-control" style="height: 40px" value="{{old('title')}}">
+            <div class="form-group row">
+                <label class="col-xs-2">Tytuł</label>
+                <div class="col-xs-10">
+                    <input name="title" class="form-control" placeholder="Tytuł" value="{{old('title')}}">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label style="font-size: small">Alias</label>
-                <input name="alias" class="form-control" style="height: 40px" value="{{old('alias')}}">
+            <div class="form-group row">
+                <label class="col-xs-2">Alias</label>
+                <div class="col-xs-10">
+                    <input name="alias" class="form-control" placeholder="Alias" value="{{old('alias')}}">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label style="font-size: small">Meta tytuł</label>
-                <input name="meta_title" class="form-control" style="height: 40px" value="{{old('meta_title')}}">
+            <div class="form-group row">
+                <label class="col-xs-2">Meta-Tytuł</label>
+                <div class="col-xs-10">
+                    <input name="meta_title" class="form-control" placeholder="Meta Tytuł"
+                           value="{{old('meta_title')}}">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label style="font-size: small">Meta keywords</label>
-                <input name="meta_keywords" class="form-control" style="height: 40px" value="{{old('meta_keywords')}}">
+            <div class="form-group row">
+                <label class="col-xs-2">Meta-Keywords</label>
+                <div class="col-xs-10">
+                    <input name="meta_keywords" class="form-control" placeholder="Meta Keywords"
+                           value="{{old('meta_keywords')}}">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label style="font-size: small">Meta opis</label>
-                <input name="meta_description" class="form-control" style="height: 40px"
-                       value="{{old('meta_description')}}">
-                >
+            <div class="form-group row">
+                <label class="col-xs-2">Meta-Opis</label>
+                <div class="col-xs-10">
+                    <input name="meta_description" class="form-control" placeholder="Meta Opis"
+                           value="{{old('meta_description')}}">
+                </div>
             </div>
 
             <div class="form-group">

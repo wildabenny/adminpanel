@@ -14,32 +14,44 @@
 
             <div class="row">
 
-                <ul class="itemslist">
-                    <li class="listitle">
-                        <div>
-                            Id
-                        </div>
-                        <div style="width: 80%">
-                            Name
-                        </div>
-                    </li>
+                <form method="get" action="{{route('searchproducts')}}" class="navbar-brand" role="search">
+
+                    <div class="input-group search-form">
+                        <input type="text" class="form-control" name="search" placeholder="Nazwa strony...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit" style="color: #2ca02c">
+                                Szukaj
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>Nazwa</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     @foreach($products as $product)
-                        <li class="listitem">
-                            <div class="divitem1">
-                                {{$product->displayorder}}
-                            </div>
-                            <div class="divitem">
-                                {{$product->shortname}}
+                        <tr>
+                            <th scope="row">{{$product->id}}</th>
+                            <td>{{$product->shortname}}</td>
+                            <td>
                                 <a href="{{route('editProductForm', ['product' => $product->id])}}">
                                     <button class="btn btn-primary btn-xs" style="float: right">Edytuj</button>
                                 </a>
+                            </td>
+                            <td>
                                 <a href="{{route('deleteProductForm', ['product' => $product->id])}}">
-                                    <button class="btn btn-danger btn-xs" style="float: right">Usuń</button>
+                                    <button class="btn btn-danger btn-xs">Usuń</button>
                                 </a>
-                            </div>
-                        </li>
+                            </td>
+                        </tr>
                     @endforeach
-                </ul>
+                    </tbody>
+                </table>
 
             </div>
 

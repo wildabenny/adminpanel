@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Product;
-use File;
 use Illuminate\Http\Request;
 use Storage;
 use Validator;
@@ -25,6 +24,16 @@ class ProductsController extends Controller
 
         return view('administrator/products', ['products' => $products]);
 
+    }
+
+    public function showSearch()
+    {
+        $search = \Request::get('search');
+        $products = Product::where('shortname', 'like', '%' . $search . '%')
+            ->orderBy('id')
+            ->paginate(10);
+
+        return view('administrator.products', ['products' => $products]);
     }
 
     public function showProduct($id)
@@ -51,17 +60,17 @@ class ProductsController extends Controller
                 ->withInput();
         }
 
-        $file = $request->file('image');
-        /* $extension = $file->getClientOriginalExtension();
-         $fileName = $file->getClientOriginalName();
-         Storage::disk('local')->put($fileName, File::get($file));
-         $product->image = $file->getRealPath();*/
+        //$file = $request->file('image');
+        /*$extension = $file->getClientOriginalExtension();
+        $fileName = $file->getClientOriginalName();
+        Storage::disk('local')->put($fileName, File::get($file));
+        $product->image = $file->getRealPath();*/
 
         //$path = Storage::putFile('images', $request->file('image'));
-
-        $file->move(public_path('images'), $request->file('image')->getClientOriginalName());
+        $path = Storage::putFile('public/images', $request->file('image'));
+        //$file->move(public_path('images'), $request->file('image')->getClientOriginalName());
         //$request->file('image')->getClientOriginalName()->move(public_path('images'));
-        $product->image = public_path('images') . '/' . $request->file('image')->getClientOriginalName();
+        $product->image = $path;
         $product->shortname = $request->shortname;
         $product->longname = $request->longname;
         $product->description = $request->description;

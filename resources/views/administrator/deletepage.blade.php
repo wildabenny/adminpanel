@@ -21,7 +21,7 @@
 
             <div class="col-md-6 col-md-offset-4">
                 <ul>
-                    <a href="{{route('pages')}}">
+                    <a href="{{url('administrator/pages')}}">
                         <button class="btn btn-primary">Anuluj</button>
                     </a>
                 </ul>

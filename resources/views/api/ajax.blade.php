@@ -6,7 +6,7 @@
                data-title="{{$product->shortname}}"
                data-description="{{$product->description}}"
                data-image="{{$product->image}}" class="wrapper lightbox-trigger">
-                <img src="{{$product->image}}">
+                <img src="{{base_path($product->image)}}">
                 <div class="overlay">
                 </div>
                 <div class="title">{{$product->longname}}</div>

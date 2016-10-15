@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Page;
 use File;
-use Illuminate\Http\Request;
 use Session;
 use Storage;
+use Symfony\Component\HttpFoundation\Request;
 use Validator;
 use View;
 
@@ -23,7 +23,19 @@ class PagesController extends Controller
     {
 
         $pages = Page::paginate(10);
+
         return view('administrator/pages', ['pages' => $pages]);
+
+    }
+
+    public function showSearch()
+    {
+        $search = \Request::get('search');
+        $pages = Page::where('title', 'like', '%' . $search . '%')
+            ->orderBy('id')
+            ->paginate(10);
+
+        return view('administrator.pages', ['pages' => $pages]);
     }
 
     public function add(Request $request, Page $page)

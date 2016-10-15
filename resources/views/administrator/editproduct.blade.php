@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <div class="col-md-12" style="text-align: center">
+        <div class="col-md-12">
 
             <div class="row">
 
@@ -24,42 +24,65 @@
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
 
-                    <div class="form-group">
-                        <label style="font-size: small">Krótka nazwa</label>
-                        <textarea name="shortname" class="form-control"
-                                  style="height: 40px"
-                                  value="{{ old($product->shortname) }}">{{$product->shortname}}</textarea>
+                    <div class="form-group row">
+                        <label class="col-xs-2">Krótka nazwa</label>
+                        <div class="col-xs-10">
+                            <input name="shortname" class="form-control" placeholder="Krótka nazwa"
+                                   value="{{$product->shortname}}">
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label style="font-size: small">Długa nazwa</label>
-                        <textarea name="longname" class="form-control"
-                                  style="height: 40px">{{$product->longname}}</textarea>
+                    <div class="form-group row">
+                        <label class="col-xs-2">Długa nazwa</label>
+                        <div class="col-xs-10">
+                            <input name="longname" class="form-control" placeholder="Długa nazwa"
+                                   value="{{$product->longname}}">
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label style="font-size: small">Opis</label>
-                        <textarea name="description" class="form-control"
-                                  style="height: 40px">{{$product->description}}</textarea>
+                    <div class="form-group row">
+                        <label class="col-xs-2">Opis</label>
+                        <div class="col-xs-10">
+                            <input name="description" class="form-control" placeholder="Opis"
+                                   value="{{$product->description}}">
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <input type="file" name="image" id="image">
-                    </div>
-
-                    <label>Kolejność wyświetlania</label>
-                    <input type="number" name="displayorder" min="1" max="500">
-
-                    <fieldset>
-                        <label>Główny produkt?</label><br>
-                        <input type="radio" name="mainproduct" value="1"/><label>Tak</label><br/>
-                        <input type="radio" name="mainproduct" value="0"/><label>Nie</label><br/>
+                    <fieldset class="form-group row">
+                        <legend class="col-form-legend col-sm-2">Główny produkt</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="mainproduct">
+                                    Tak
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="mainproduct">
+                                    Nie
+                                </label>
+                            </div>
+                        </div>
                     </fieldset>
 
-                    <div class="form-group">
-                        <button class="btn btn-primary">Zapisz</button>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Kolejność wyświetlania</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="number" name="displayorder" min="1" max="500"
+                                   value="{{$product->displayorder}}">
+                        </div>
                     </div>
 
+                    <div class="form-group row" style="text-align: center">
+                        <label>Aktualny plik: {{basename($product->image)}}
+                            <input type="file" name="image" class="form-control-file">
+                        </label>
+                    </div>
+
+                    <div class="form-group" style="text-align: center">
+                        <button class="btn btn-primary">Zapisz</button>
+                    </div>
                 </form>
 
             </div>
